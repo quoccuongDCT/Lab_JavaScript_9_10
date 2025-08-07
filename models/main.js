@@ -17,6 +17,7 @@ function setLocalStorage() {
 }
 
 document.getElementById("btnThemNV").onclick = function () {
+  if (!validateForm()) return; // Thêm dòng này để kiểm tra
   const taiKhoan = document.getElementById("tknv").value;
   const hoTen = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -115,6 +116,7 @@ document.getElementById("tableDanhSach").onclick = function (e) {
 };
 
 document.getElementById("btnCapNhat").onclick = function () {
+  if (!validateForm()) return; // Thêm dòng này để kiểm tra
   const taiKhoan = document.getElementById("tknv").value;
   const hoTen = document.getElementById("name").value;
   const email = document.getElementById("email").value;
@@ -138,7 +140,7 @@ document.getElementById("btnCapNhat").onclick = function () {
   nhanVienList.updateNhanVien(nvUpdate);
   setLocalStorage();
   renderTable(nhanVienList.arr);
-  
+
   document.getElementById("btnCapNhat").style.display = "none";
   document.getElementById("btnThemNV").style.display = "inline-block";
 };
